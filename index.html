@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Videos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@1.7.0/dist/full.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white text-center py-8">
+    <h1 id="greeting" class="text-4xl font-bold mb-2">Welcome</h1>
+    <p class="text-xl">Hi guys, keep it up!</p>
+  </header>
+
+  <!-- Card Section -->
+  <main class="container mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <!-- Card 1 -->
+      <div onclick="loadVideos('khan.json')" class="cursor-pointer card bg-white shadow-lg hover:shadow-xl hover:scale-105 transition rounded-lg overflow-hidden">
+        <figure><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Khan_Sir.jpg" alt="Khan Sir" class="w-full h-52 object-cover"/></figure>
+        <div class="card-body">
+          <h2 class="card-title">GK AND GS BY KHAN SIR</h2>
+          <p>Click to view videos</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div onclick="loadVideos('neetu.json')" class="cursor-pointer card bg-white shadow-lg hover:shadow-xl hover:scale-105 transition rounded-lg overflow-hidden">
+        <figure><img src="https://via.placeholder.com/400x250?text=Neetu+Mam" alt="Neetu Mam" class="w-full h-52 object-cover"/></figure>
+        <div class="card-body">
+          <h2 class="card-title">ENGLISH BY NEETU MAM</h2>
+          <p>Click to view videos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div id="videoContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </main>
+
+  <script>
+    // Show greeting based on time
+    function showGreeting() {
+      const hour = new Date().getHours();
+      let greeting = "Hello";
+
+      if (hour >= 5 && hour < 12) greeting = "Good Morning";
+      else if (hour >= 12 && hour < 17) greeting = "Good Afternoon";
+      else if (hour >= 17 && hour < 21) greeting = "Good Evening";
+      else greeting = "Good Night";
+
+      document.getElementById("greeting").textContent = greeting;
+    }
+
+    // Load JSON and display videos
+    function loadVideos(jsonFile) {
+      fetch(jsonFile)
+        .then(res => res.json())
+        .then(videos => {
+          const container = document.getElementById("videoContainer");
+          container.innerHTML = ""; // Clear previous
+
+          videos.forEach(video => {
+            const card = document.createElement("div");
+            card.className = "card bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition";
+
+            card.innerHTML = `
+              <figure><img src="${video.thumbnail_url}" alt="${video.title}" class="w-full h-40 object-cover" /></figure>
+              <div class="card-body">
+                <h3 class="font-semibold text-lg">${video.title}</h3>
+                <iframe src="${video.video_url}" class="w-full h-52 mt-2 rounded" frameborder="0" allowfullscreen></iframe>
+              </div>
+            `;
+            container.appendChild(card);
+          });
+
+          // Scroll to videos
+          container.scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch(err => {
+          alert("Failed to load video list.");
+          console.error(err);
+        });
+    }
+
+    // Initialize greeting
+    showGreeting();
+  </script>
+</body>
+</html>
