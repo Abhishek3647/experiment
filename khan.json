@@ -1,17 +1,26 @@
 [
   {
-    "title": "Sample Video 1",
-    "video_url": "https://sujanch-stream.koyeb.app/125167?hash=AgADSQ",
-    "thumbnail_url": "https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg"
+    "title": "Learn JavaScript in 12 Minutes",
+    "videoType": "selfhosted",
+    "videoUrl": "https://https://sujanch-stream.koyeb.app/125167?hash=AgADSQ",
+    "thumbnailUrl": "https://img.youtube.com/vi/Ukg_U3CnJWI/hqdefault.jpg"
   },
   {
-    "title": "Sample Video 2",
-    "video_url": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
-    "thumbnail_url": "https://img.youtube.com/vi/3JZ_D3ELwOQ/0.jpg"
+    "title": "Build a Website with HTML, CSS, JS",
+    "videoType": "YouTube",
+    "videoUrl": "https://www.youtube.com/watch?v=3JluqTojuME",
+    "thumbnailUrl": "https://img.youtube.com/vi/3JluqTojuME/hqdefault.jpg"
   },
   {
-    "title": "Sample Video 3",
-    "video_url": "https://www.youtube.com/embed/tgbNymZ7vqY",
-    "thumbnail_url": "https://img.youtube.com/vi/tgbNymZ7vqY/0.jpg"
+    "title": "Python Crash Course for Beginners",
+    "videoType": "YouTube",
+    "videoUrl": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+    "thumbnailUrl": "https://img.youtube.com/vi/rfscVS0vtbw/hqdefault.jpg"
+  },
+  {
+    "title": "React JS Full Course",
+    "videoType": "YouTube",
+    "videoUrl": "https://www.youtube.com/watch?v=bMknfKXIFA8",
+    "thumbnailUrl": "https://img.youtube.com/vi/bMknfKXIFA8/hqdefault.jpg"
   }
 ]
